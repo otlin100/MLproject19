@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+blatt04/
+blatt06/
+blatt07/
+blatt08/
+blatt09/
+blatt11/
+data/TestSet1D.csv
+data/TrainingSet1D.csv
+data/iris.data
+data/svm_data.csv
+data/svm_labels.csv
