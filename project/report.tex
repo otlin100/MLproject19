@@ -1,5 +1,8 @@
 \documentclass[twocolumn]{scrartcl}
 \usepackage[cm]{fullpage}
+\usepackage{hyperref}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{report.bib}
 
 \title{Classification/Regression of wine}
 % Do NOT write your names here!
@@ -7,12 +10,17 @@
 \begin{document}
 \maketitle
 
-\section{First section}
+\section{Introduction}
+
+The following report outlines our attempts to use common classification/regression
+algorithms to predict the wine quality depending on the given features.
+We use a data set from the UCI Machine Learning Repository
+\footnote{\url{http://archive.ics.uci.edu/ml/datasets/Wine+Quality}} \parencite{data}.
 
 \subsection{Fist subsection}
 
 \section{Second section}
-\bibliographystyle{plain}
-\bibliography{report}
+
+\printbibliography
 
 \end{document}
