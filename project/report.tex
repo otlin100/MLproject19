@@ -5,7 +5,7 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{report.bib}
 
-\title{Classification of wine}
+\title{Classification of Wine Quality}
 % Do NOT write your names here!
 \author{Anonymous Authors}
 \begin{document}
@@ -47,13 +47,18 @@ This doesn't come as a surprise, considering that the classes can obviously be l
 \subsection{Cross-Validation}
 \subsection{Results}
 
-\section{Multi Layer Perceptron}
+\section{Multi Layer Perceptron (MLP)}
 \subsection{Description}
+MLP is a supervised learning algorithm and is a function approximator that can be used for classification and regression. We have used the MLPClassifier function (rather than MLPRegressor although both could be used on our  chosen data set) from scikit-learn's Neural Network library.
+
 \subsection{Cross-Validation}
 \subsection{Results}
 
 \section{Random Forest Classification}
 \subsection{Description}
+Random Forest Classification is also a supervised learning algorithm that is widely used for solving classification and regression problems. The idea behind this method is to increase the classification accuracy (a.k.a aim for lower variance) by using bootstrap aggregating (or bagging) algorithms. Generally speaking, the gross idea behind Random Forest Classification is to use the bagging method to split up a decision tree into two different trees. When one does that enough times, there is a large amount of trees (hence the name- "forest) which gives the possibility to gather more information for analysis and therefore better accuracy. \footnote{\url{https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd}}.
+In this project we used the RandomForestClassifier algorithm from the Scikit-learn library.
+
 \subsection{Cross-Validation}
 \subsection{Results}
 
@@ -66,5 +71,6 @@ This doesn't come as a surprise, considering that the classes can obviously be l
 \section{Conclusion}
 
 \printbibliography
+
 
 \end{document}
