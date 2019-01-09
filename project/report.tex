@@ -44,26 +44,46 @@ This doesn't come as a surprise, considering that the classes can obviously be l
 %not yet decided which to use
 \section{Ridge Classification}
 \subsection{Description}
+Ridge Classifier implements Ridge regression.
+Ridge regression (one of it's many names) is a linear regularization method
+\footnote{\url{https://en.wikipedia.org/wiki/Tikhonov_regularization}} 
+that addresses some of the Ordinary Least Squares problems
+\footnote{\url{https://scikit-learn.org/stable/modules/linear_model.html\#ridge-regression}}
+in which if there is no unique answer the estimator will lead to over fitting or under fitting and the result will not be as accurate as by using other methods.
+
+In our project we have implemented the RidgeClassifier function from the Scikit-learn library.
 \subsection{Cross-Validation}
+Result = 0.5565597965437451
 \subsection{Results}
 
-\section{Multi Layer Perceptron (MLP)}
+\section{Multi Layer Perceptron}
 \subsection{Description}
-MLP is a supervised learning algorithm and is a function approximator that can be used for classification and regression. We have used the MLPClassifier function (rather than MLPRegressor although both could be used on our  chosen data set) from scikit-learn's Neural Network library.
+MLP is a supervised learning algorithm and is a function approximator that can be used for classification and regression which is widely used in neural network algorithms. 
+
+We have used the MLPClassifier function (rather than MLPRegressor although both could be used on our  chosen data set) from Scikit-learn's Neural Network library.
 
 \subsection{Cross-Validation}
+Result = 0.5347151403973234
 \subsection{Results}
 
 \section{Random Forest Classification}
 \subsection{Description}
-Random Forest Classification is also a supervised learning algorithm that is widely used for solving classification and regression problems. The idea behind this method is to increase the classification accuracy (a.k.a aim for lower variance) by using bootstrap aggregating (or bagging) algorithms. Generally speaking, the gross idea behind Random Forest Classification is to use the bagging method to split up a decision tree into two different trees. When one does that enough times, there is a large amount of trees (hence the name- "forest) which gives the possibility to gather more information for analysis and therefore better accuracy. \footnote{\url{https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd}}.
+Random Forest is also a supervised learning algorithm that is widely used for solving classification and regression problems. The idea behind this method is to increase the classification accuracy (a.k.a aim for lower variance) by using bootstrap aggregating (or bagging) algorithms. Generally speaking, the gross idea behind Random Forest Classification is to use the bagging method to split up a decision tree into two different trees. When one does that enough times, there is a large amount of trees (hence the name- "forest) which gives the possibility to gather more information for analysis and therefore better accuracy. \footnote{\url{https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd}}.
+
 In this project we used the RandomForestClassifier algorithm from the Scikit-learn library.
 
 \subsection{Cross-Validation}
+Result = 0.5712522148798233
 \subsection{Results}
 
 \section{Gaussian Process Classification}
 \subsection{Description}
+Gaussian Processes algorithms could be also used for both classification and regression problems. A Gaussian process is a stochastic process with a Gaussian normal distribution kernel. This type of algorithm takes all the points that are available and measures the similarity between them to predict a value for a value for a future point.
+The principle behind this classification method is the assumption that the tested data is normally distributed so this method should, in theory, work poorly on data that is not distributed in such a matter. In practice it could be observed that Gaussian processes work rather good on most data and the performance is not so accurate when the data set contain more than a dozen or a couple dozen of features.
+\footnote{\url{https://www.kaggle.com/residentmario/gaussian-process-regression-and-classification}}.
+Luckily, our wine quality data set has only 11 features, which should reproduce satisfactory results.
+
+To implement the Gaussian Process Classification algorithm, we used the GaussianProcessClassifier method from the Scikit-learn library.
 \subsection{Cross-Validation}
 \subsection{Results}
 
