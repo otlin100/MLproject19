@@ -46,15 +46,22 @@ This doesn't come as a surprise, considering that the classes can obviously be l
 \subsection{Description}
 Ridge Classifier implements Ridge regression.
 Ridge regression (one of it's many names) is a linear regularization method
-\footnote{\url{https://en.wikipedia.org/wiki/Tikhonov_regularization}} 
+\footnote{\url{https://en.wikipedia.org/wiki/Tikhonov_regularization}}
 that addresses some of the Ordinary Least Squares problems
 \footnote{\url{https://scikit-learn.org/stable/modules/linear_model.html\#ridge-regression}}
 in which if there is no unique answer the estimator will lead to over fitting or under fitting and the result will not be as accurate as by using other methods.
 
 In our project we have implemented the RidgeClassifier function from the Scikit-learn library.
 \subsection{Cross-Validation}
-Result = 0.5565597965437451
-\subsection{Results}
+We used the RandomizedSearchCV function from the Scikit-learn library to perform cross-validation on different combinations of hyperparameters. In this case we tried out settings for normalization and different values for the regularizition parameter alpha. The following combination returned the best results for us:
+
+\begin{itemize}
+    \item{fit intercept: True}
+    \item{normalize: False}
+    \item{alpha: 0.0017}
+    \item{test score mean: 0.56}
+    \item{accuracy: 0.56 (+/- 0.08)}
+\end{itemize}
 
 \section{Multi Layer Perceptron}
 \subsection{Description}
@@ -62,27 +69,32 @@ Multi Layer Perceptron (MLP) is a supervised learning algorithm and is a functio
 In this structure, a single neuron is represented by a single perceptron and when considering many of them, they represent the entire neural network. In this method, multiple layers (two or more with one or more additional hidden layers) and non-linear methods are used.One layer is simply one row of neurons. A simple MLP with only one hidden layer is represented in Figure \ref{fig:mlp} (Figure credit \footnote{\url{http://neuroph.sourceforge.net/tutorials/MultiLayerPerceptron.html}}).
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{images/mlp.jpeg}
-	\caption{Simple MLP with one hidden layer}
-	\label{fig:mlp}
+    \centering
+    \includegraphics[width=\linewidth]{images/mlp.jpeg}
+    \caption{Simple MLP with one hidden layer}
+    \label{fig:mlp}
 \end{figure}
 
-We have used the MLPClassifier function (rather than MLPRegressor although both could be used on our  chosen data set) from Scikit-learn's Neural Network library.
+We have used the MLPClassifier function (rather than MLPRegressor although both could be used on our chosen data set) from Scikit-learn's Neural Network library.
 
 \subsection{Cross-Validation}
-Result = 0.5347151403973234
-\subsection{Results}
+We again perform cross-validation on combinations of hyperparameters: These included different activation functions (logistic, tanh, relu, identity), regularizations, learning rates and hidden layer sizes. Because RandomizedSearchCV is not exhaustive the results are slightly different each run. A good choice of hyperparameters would be:
+\begin{itemize}
+    \item{activation: logistic}
+    \item{alpha: 0.05}
+    \item{hidden layer sizes: (100,)}
+    \item{initial learning rate: 0.0005}
+    \item{test score mean: 0.54}
+\end{itemize}
+It should be noted that in the case of MLPs every run returns a different classifer, even with the same hyperparameters so apart from the choice of the activation function other combinations of hyperparameters could yield similar results.
 
 \section{Random Forest Classification}
 \subsection{Description}
 Random Forest is also a supervised learning algorithm that is widely used for solving classification and regression problems. The idea behind this method is to increase the classification accuracy (a.k.a aim for lower variance) by using bootstrap aggregating (or bagging) algorithms. Generally speaking, the gross idea behind Random Forest Classification is to use the bagging method to split up a decision tree into two different trees. When one does that enough times, there is a large amount of trees (hence the name- "forest) which gives the possibility to gather more information for analysis and therefore better accuracy. \footnote{\url{https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd}}.
 
 In this project we used the RandomForestClassifier algorithm from the Scikit-learn library.
-
-\subsection{Cross-Validation}
-Result = 0.5712522148798233
 \subsection{Results}
+Varying the number of trees we get a test score mean of 0.58 and an accuracy of 0.58 (+/- 0.03) for using 659 trees.
 
 \section{Gaussian Process Classification}
 \subsection{Description}
@@ -93,12 +105,16 @@ Luckily, our wine quality data set has only 11 features, which should reproduce 
 
 To implement the Gaussian Process Classification algorithm, we used the GaussianProcessClassifier method from the Scikit-learn library.
 
-
-\subsection{Cross-Validation}
 \subsection{Results}
 
+Without cross-validation we get a score of 0.45.
+
 \section{Comparison}
+
+The Random Forest Classifier seems to work best when comparing the scores. The most efficient algorithm for us was Ridge Classification which takes a very short amount of time compared to other models and returns scores which are among the better ones.
+
 \section{Conclusion}
+With different models trying to classify the data the results remain mediocre at best. While some algorithms perform better than others, the scores are quite similar across all chosen models. As it gets more difficult to separate the classes more data is needed to take it to the next level, especially for MLPs. Another approach would be a thorough statistical analysis to understand which additional preparation steps could be beneficial. For example, every time we performed cross-validation the default metrics of the models have been used respectively. If the dataset is better understood, different, possibly more suitable metrics could be considered. As a conclusion we discovered that data preprocessing and preparation is much more important than we initially assumed. With dozens of algorithms it becomes difficult to get a grasp on which to use in different scenarios.
 
 \printbibliography
 
