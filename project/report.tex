@@ -41,6 +41,11 @@ Though, it should be noted that we also examine algorithms (e.g. ridge classifie
 and using regression should therefore yield similar results in our case.
 This doesn't come as a surprise, considering that the classes can obviously be linearly ordered.
 
+\subsection{Cross-Validating the data}
+The goal of cross validation is to achieve the accuracy of out-of-training data with using only the training data itself. So we don't have to separate the data into two different groups, instead we train the model on all of the data set. 
+
+In out project we use the cross\_val\_score helper function to calculate the mean and the accuracy\footnote{\url{https://scikit-learn.org/stable/modules/cross_validation.html\#computing-cross-validated-metrics}} of the different models.
+
 %not yet decided which to use
 \section{Ridge Classification}
 \subsection{Description}
@@ -53,7 +58,7 @@ in which if there is no unique answer the estimator will lead to over fitting or
 
 In our project we have implemented the RidgeClassifier function from the Scikit-learn library.
 \subsection{Cross-Validation}
-Result = 0.5565597965437451
+The resulted mean is 0.55655979654374510002, and the resulted accuracy is 0.56 (+/- 0.08).
 \subsection{Results}
 
 \section{Multi Layer Perceptron}
@@ -72,6 +77,7 @@ We have used the MLPClassifier function (rather than MLPRegressor although both 
 
 \subsection{Cross-Validation}
 Result = 0.5347151403973234
+The resulted mean is 0.51490775676971511920, and the resulted accuracy is 0.51 (+/- 0.06).
 \subsection{Results}
 
 \section{Random Forest Classification}
@@ -79,9 +85,8 @@ Result = 0.5347151403973234
 Random Forest is also a supervised learning algorithm that is widely used for solving classification and regression problems. The idea behind this method is to increase the classification accuracy (a.k.a aim for lower variance) by using bootstrap aggregating (or bagging) algorithms. Generally speaking, the gross idea behind Random Forest Classification is to use the bagging method to split up a decision tree into two different trees. When one does that enough times, there is a large amount of trees (hence the name- "forest) which gives the possibility to gather more information for analysis and therefore better accuracy. \footnote{\url{https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd}}.
 
 In this project we used the RandomForestClassifier algorithm from the Scikit-learn library.
-
 \subsection{Cross-Validation}
-Result = 0.5712522148798233
+The resulted mean is 0.57390360843009313729, and the resulted accuracy is 0.57 (+/- 0.05).
 \subsection{Results}
 
 \section{Gaussian Process Classification}
@@ -92,9 +97,8 @@ The principle behind this classification method is the assumption that the teste
 Luckily, our wine quality data set has only 11 features, which should reproduce satisfactory results.
 
 To implement the Gaussian Process Classification algorithm, we used the GaussianProcessClassifier method from the Scikit-learn library.
-
-
 \subsection{Cross-Validation}
+The resulted mean is 0.44876050113610305159, and the resulted accuracy is 0.45 (+/- 0.06).
 \subsection{Results}
 
 \section{Comparison}
