@@ -41,6 +41,11 @@ Though, it should be noted that we also examine algorithms (e.g. ridge classifie
 and using regression should therefore yield similar results in our case.
 This doesn't come as a surprise, considering that the classes can obviously be linearly ordered.
 
+\subsection{Cross-Validating the data}
+The goal of cross validation is to achieve the accuracy of out-of-training data with using only the training data itself. So we don't have to separate the data into two different groups, instead we train the model on all of the data set.
+
+In out project we use the cross\_val\_score helper function to calculate the mean and the accuracy\footnote{\url{https://scikit-learn.org/stable/modules/cross_validation.html\#computing-cross-validated-metrics}} of the different models.
+
 %not yet decided which to use
 \section{Ridge Classification}
 \subsection{Description}
