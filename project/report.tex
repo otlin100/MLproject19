@@ -44,9 +44,8 @@ This doesn't come as a surprise, considering that the classes can obviously be l
 \subsection{Cross-Validating the data}
 The goal of cross validation is to achieve the accuracy of out-of-training data with using only the training data itself. So we don't have to separate the data into two different groups, instead we train the model on all of the data set.
 
-In out project we use the cross\_val\_score helper function to calculate the mean and the accuracy\footnote{\url{https://scikit-learn.org/stable/modules/cross_validation.html\#computing-cross-validated-metrics}} of the different models.
+In out project we use the cross\_val\_score helper function \footnote{\url{https://scikit-learn.org/stable/modules/cross_validation.html\#computing-cross-validated-metrics}} to calculate the mean  of the different models.
 
-%not yet decided which to use
 \section{Ridge Classification}
 \subsection{Description}
 Ridge Classifier implements Ridge regression.
@@ -65,7 +64,6 @@ We used the RandomizedSearchCV function from the Scikit-learn library to perform
     \item{normalize: False}
     \item{alpha: 0.0017}
     \item{test score mean: 0.56}
-    \item{accuracy: 0.56 (+/- 0.08)}
 \end{itemize}
 
 \section{Multi Layer Perceptron}
@@ -99,7 +97,7 @@ Random Forest is also a supervised learning algorithm that is widely used for so
 
 In this project we used the RandomForestClassifier algorithm from the Scikit-learn library.
 \subsection{Results}
-Varying the number of trees we get a test score mean of 0.58 and an accuracy of 0.58 (+/- 0.03) for using 659 trees.
+Varying the number of trees we get a test score mean of 0.58 for using 659 trees.
 
 \section{Gaussian Process Classification}
 \subsection{Description}
